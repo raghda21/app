@@ -30,7 +30,7 @@ int main ()
    server.sin_port=htons(80); //putting the host port (http port 80)
    server.sin_addr.s_addr=inet_addr("184.106.153.149");  //putting server address into descriptor
 
- while(1){printf("done");
+ 
      //connection to remote server using TCP/IP
    connect(s,(struct sockaddr *)&server,sizeof(server));
    if(connect(s,(struct sockaddr*)&server , sizeof(server)),0){
@@ -47,12 +47,12 @@ int main ()
   // recv(s,recv_buf,2000,0);
    //puts(recv_buf);*/
 
-   char  message="GET https://api.thingspeak.com/update?api_key=UC8VPHBURX6UGSOY&field1=20\r\n\r\n"
+   char  message[200]="GET https://api.thingspeak.com/update?api_key=VV33CG4A57MMN20C&field1=20\r\n\r\n";
                send(s,message,strlen(message),0);
 
 
    closesocket (s);
-}
+
 
 return 0;
 
